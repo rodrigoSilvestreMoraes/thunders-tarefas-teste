@@ -9,6 +9,7 @@ public interface ITarefaApp
 	Task<AppResponse<bool>> AlterarTarefa(TarefaAlteracao tarefaAlteracao);
 	Task<AppResponse<bool>> AlterarStatus(string tarefaId, int status);
 	Task<AppResponse<bool>> ApagarTarefa(string tarefaId);
+
 	Task<AppResponse<ITarefaDefinition>> PegarTarefa(string tarefaId);
 	Task<AppResponse<List<ITarefaDefinition>>> ConsultarTarefas(string usuario);
 	Task<AppResponse<List<ITarefaDefinition>>> ConsultarTarefas(string dataInicial, string dataFinal);

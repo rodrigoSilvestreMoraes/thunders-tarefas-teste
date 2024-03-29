@@ -62,17 +62,17 @@ public class TarefaRepo : ITarefaRepo
         return result.DeletedCount > 0;
     }
 
-    public async Task<List<TarefaEntitie>> ExisteTarefaPorNome(string nome)
+    public async Task<TarefaEntitie> ExisteTarefaPorNome(string nome)
     {
 		var builder = Builders<TarefaEntitie>.Filter;
 		var filters = new List<FilterDefinition<TarefaEntitie>>
 		{
-			builder.Eq(x => x.Nome, nome.ToLower())
+			builder.Eq(x => x.Nome, nome.Trim().ToLower())
 		};
 		var filter = builder.And(filters);
 
 		var result = await GetCollection().FindAsync(filter);
-		return result.ToList();
+		return result.FirstOrDefault();
 	}
     public async Task<List<TarefaEntitie>> Consultar(string usuario)
     {

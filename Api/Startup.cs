@@ -18,7 +18,7 @@ namespace Tarefas.Api;
 public class Startup
 {
 	public IConfiguration Configuration { get; set; }
-	const string _title = "Tarefas - API";
+	public static string _title = "Tarefas - API";
 	const string _version = "v1.0.0";
 
 	public Startup()
@@ -100,7 +100,7 @@ public class Startup
 
 		}));
 
-		const string pathBase = "/fluxo-caixa";
+		const string pathBase = "/tarefas-thunders";
 		app.UsePathBase(new PathString(pathBase));
 
 		app.UseSwagger();

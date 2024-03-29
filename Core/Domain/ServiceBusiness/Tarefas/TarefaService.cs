@@ -13,11 +13,22 @@ public class TarefaService : ITarefaService
 
 	public async Task<ITarefaDefinition> Criar(ITarefaDefinition tarefaEntitie)
 	{
+		var existeTarefa = await _tarefaRepo.ExisteTarefaPorNome(tarefaEntitie.Nome);
+
+		if(existeTarefa != null)
+			return existeTarefa.MappingResponse(new TarefaConsulta());
+
 		var result = await _tarefaRepo.Criar(TarefaEntitie.BuilderForInsert(tarefaEntitie));
-		var response = new TarefaConsulta();
-		return result.MappingResponse(response);
+		return result.MappingResponse(new TarefaConsulta());
 	}
-	public async Task<bool> Alterar(ITarefaDefinition tarefaEntitie) => await _tarefaRepo.Alterar(TarefaEntitie.BuilderForUpdate(tarefaEntitie));
+	public async Task<bool> Alterar(ITarefaDefinition tarefaEntitie)
+	{
+		var existeTarefa = await _tarefaRepo.ExisteTarefaPorNome(tarefaEntitie.Nome);
+		if (existeTarefa != null && existeTarefa.Id != tarefaEntitie.Id)
+			return false;
+
+		return await _tarefaRepo.Alterar(TarefaEntitie.BuilderForUpdate(tarefaEntitie));
+	}
 	public async Task<bool> AlterarStatus(string tarefaId, int status)
 	{
 		//TODO: Coloquei para demonstrar onde ficaria regras de negócio específicas do dominio

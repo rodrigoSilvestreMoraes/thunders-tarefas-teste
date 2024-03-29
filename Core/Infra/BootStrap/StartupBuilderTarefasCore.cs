@@ -1,5 +1,4 @@
 ﻿using Tarefas.Core.Domain.ServiceBusiness.Dominios;
-using Tarefas.Core.Infra.CustomLog;
 using Tarefas.Core.Infra.EventBus;
 using Tarefas.Core.Infra.Repository.CustomLog;
 using Tarefas.Core.Infra.Repository.Dominio;
@@ -12,6 +11,9 @@ using FluentValidation;
 using Tarefas.Core.Domain.Models.Tarefas;
 using Tarefas.Core.Domain.Application.Tarefa.Validator;
 using Tarefas.Core.Domain.Application.Tarefa;
+using Tarefas.Core.Domain.Repositorys.Tarefa;
+using Tarefas.Core.Infra.Repository.Mongo.Tarefas;
+using Tarefas.Core.Infra.CustomLogger;
 
 namespace Tarefas.Core.Infra.BootStrap;
 
@@ -43,9 +45,8 @@ public static class StartupBuilderTarefasCore
 		#region Services
 
 		services.AddSingleton<BackgroundWorkerQueue>();
-		services.AddSingleton<ITarefaService, TarefaService>();
-		services.AddSingleton<ICustomLogService, CustomLogService>();
-		
+		services.AddScoped<ITarefaService, TarefaService>();
+		services.AddSingleton<ICustomLog, CustomLog>();		
 
 		#endregion
 
@@ -59,8 +60,9 @@ public static class StartupBuilderTarefasCore
 			DataBaseName = _configuration.GetSection("MongoConfig:DataBaseName").Value
 		});
 
-		services.AddSingleton<IMongoClient, MongoClient>();			
-		
+		services.AddSingleton<IMongoClient, MongoClient>();
+		services.AddSingleton<ITarefaRepo>(x => new TarefaRepo(mongoClient: _mongoConfig));
+
 		services.AddSingleton<IDominioService>(x => new DominiosRepo(mongoClient: _mongoConfig));
 		services.AddSingleton<ICustomLogRepo>(x => new CustomLogRepo(mongoClient: _mongoConfig, x.GetRequiredService<BackgroundWorkerQueue>()));			
 

@@ -19,7 +19,12 @@ public class TarefaEntitie
 		this.Id = id;
 	}
 	public static TarefaEntitie BuilderForInsert(ITarefaDefinition tarefaDefinition) => Builder(tarefaDefinition, EnumStatusTarefa.Pendente);
-	public static TarefaEntitie BuilderForUpdate(ITarefaDefinition tarefaDefinition) => Builder(tarefaDefinition, (EnumStatusTarefa)tarefaDefinition.Status);
+	public static TarefaEntitie BuilderForUpdate(ITarefaDefinition tarefaDefinition)
+	{
+		var tarefa = Builder(tarefaDefinition, (EnumStatusTarefa)tarefaDefinition.Status);
+		tarefa.Id = tarefaDefinition.Id;
+		return tarefa;
+	}
 	static TarefaEntitie Builder(ITarefaDefinition tarefaDefinition, EnumStatusTarefa status)
 	{
 		return new TarefaEntitie
