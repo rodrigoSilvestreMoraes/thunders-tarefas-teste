@@ -1,6 +1,5 @@
 ﻿using Tarefas.Api.Filters;
 using Tarefas.Api.Host;
-using Tarefas.Api.Models;
 using Tarefas.Core.Infra.BootStrap;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.OpenApi.Models;
@@ -11,6 +10,7 @@ using System.Net;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using System.Net.Mime;
+using Tarefas.Core.Infra.Rest.Error;
 
 namespace Tarefas.Api;
 
@@ -90,9 +90,11 @@ public class Startup
 			var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
 			var exception = exceptionHandlerPathFeature.Error;
 
-			var vndErrors = new ErroPadrao { Code = "InternalServerError", Message = new List<string> { "Falha na API, tente novamente, se o erro persistir entre em contato com suporte." } };
-			
-			var result = JsonConvert.SerializeObject(vndErrors);
+			var error = new RestClientVndErrors { VndErros = new Embedded() };
+			error.VndErros.Errors = new List<ErrorDetail>();
+			error.VndErros.Errors.Add(new ErrorDetail { ErrorCode = "InternalServerError", Message = "Falha na API, tente novamente, se o erro persistir entre em contato com suporte." });
+
+			var result = JsonConvert.SerializeObject(error);
 
 			context.Response.ContentType = "application/json";
 			context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;

@@ -1,8 +1,10 @@
-﻿using Tarefas.Core.Domain.Models.CustomLog;
+﻿using System.Diagnostics.CodeAnalysis;
+using Tarefas.Core.Domain.Models.CustomLog;
 using Tarefas.Core.Infra.Repository.CustomLog;
 
 namespace Tarefas.Core.Infra.CustomLogger;
 
+[ExcludeFromCodeCoverage]
 public class CustomLog : ICustomLog
 {
 	readonly ICustomLogRepo _customLogRepo;

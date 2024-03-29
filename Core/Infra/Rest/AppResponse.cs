@@ -1,7 +1,9 @@
-﻿using Tarefas.Core.Infra.Rest.Error;
+﻿using System.Diagnostics.CodeAnalysis;
+using Tarefas.Core.Infra.Rest.Error;
 
 namespace Tarefas.Core.Infra.Rest
 {
+	[ExcludeFromCodeCoverage]
 	public class AppResponse<T>
 	{
 		public T Response { get; set; }

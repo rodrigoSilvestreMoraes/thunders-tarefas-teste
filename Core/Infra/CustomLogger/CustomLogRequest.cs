@@ -1,4 +1,8 @@
-﻿namespace Tarefas.Core.Infra.CustomLogger;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Tarefas.Core.Infra.CustomLogger;
+
+[ExcludeFromCodeCoverage]
 public class CustomLogRequest
 {
 	private CustomLogRequest() { }

@@ -20,15 +20,6 @@ namespace Tarefas.Core.Infra.Validator
 			return result;
 		}
 
-		public static bool ValidarValorMin(decimal? valorMin) => ((!valorMin.HasValue ? true : valorMin.Value > 0));
-		public static bool ValidarDataPassado(string data)
-		{
-			if (!ValidarFormatoData(data)) return false;
-
-			var dataInput = DateTime.Parse(data);
-			return (dataInput.Date - DateTime.Now.Date).TotalDays > 0;
-		}
-
 		public static bool ValidarRangeData(string dataInicial, string dataFinal)
 		{
 			DateTime dataInicialEnviada = DateTime.MinValue;

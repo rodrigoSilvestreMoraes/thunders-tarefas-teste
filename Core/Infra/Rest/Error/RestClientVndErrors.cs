@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Tarefas.Core.Infra.Rest.Error;
 
+[ExcludeFromCodeCoverage]
 public class RestClientVndErrors
 {
 	[JsonProperty("_embedded")]
@@ -16,12 +18,14 @@ public class RestClientVndErrors
 	}
 }
 
+[ExcludeFromCodeCoverage]
 public class Embedded
 {
 	[JsonProperty("errors")]
 	public List<ErrorDetail> Errors { get; set; } = new List<ErrorDetail>();
 }
 
+[ExcludeFromCodeCoverage]
 public class ErrorDetail
 {
 	[JsonProperty("logref")]

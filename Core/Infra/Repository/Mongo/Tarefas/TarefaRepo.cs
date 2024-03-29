@@ -1,10 +1,12 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Diagnostics.CodeAnalysis;
 using Tarefas.Core.Domain.Entities.Tarefas;
 using Tarefas.Core.Domain.Repositorys.Tarefa;
 
 namespace Tarefas.Core.Infra.Repository.Mongo.Tarefas;
 
+[ExcludeFromCodeCoverage]
 public class TarefaRepo : ITarefaRepo
 {
     readonly IMongoClient _mongoClient;

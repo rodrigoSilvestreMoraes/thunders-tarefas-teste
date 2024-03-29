@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.CodeAnalysis;
-using Tarefas.Api.Models;
+using Tarefas.Core.Infra.Rest.Error;
 
 namespace Tarefas.Api.Filters;
 
@@ -24,14 +24,15 @@ public class ControllerValidationsFilter : IResultFilter
 					errors.Add("Invalid argument: " + val.Errors[0].ErrorMessage);
 			}
 
-			var vndErrors = new ErroPadrao();
-			
+			var error = new RestClientVndErrors { VndErros = new Embedded() };
+			error.VndErros.Errors = new List<ErrorDetail>();
+
 			errors.ForEach((item) =>
 			{
-				vndErrors.Message.Add(item);
+				error.VndErros.Errors.Add(new ErrorDetail { ErrorCode = "422", Message = item });
 			});
 
-			var objResult = new ObjectResult(vndErrors);
+			var objResult = new ObjectResult(error);
 
 			objResult.StatusCode = 422;
 			context.Result = objResult;
