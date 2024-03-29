@@ -1,9 +1,8 @@
 ﻿using Tarefas.Core.Domain.Models.CustomLog;
 
-namespace Tarefas.Core.Infra.Repository.CustomLog
+namespace Tarefas.Core.Infra.Repository.CustomLog;
+
+public interface ICustomLogRepo
 {
-	public interface ICustomLogRepo
-	{
-		void GravarLog(LogDetail logDetail);
-	}
+	void GravarLog(LogDetail logDetail);
 }

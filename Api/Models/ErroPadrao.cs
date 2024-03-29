@@ -1,8 +1,6 @@
-﻿namespace Tarefas.Api.Models
+﻿namespace Tarefas.Api.Models;
+public class ErroPadrao
 {
-	public class ErroPadrao
-	{
-		public string Code { get; set; }
-		public List<string> Message { get; set; } = new List<string>();
-	}
+	public string Code { get; set; }
+	public List<string> Message { get; set; } = new List<string>();
 }

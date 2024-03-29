@@ -1,9 +1,8 @@
 ﻿using MongoDB.Driver;
 
-namespace Tarefas.Core.Infra.Repository.Mongo
+namespace Tarefas.Core.Infra.Repository.Mongo;
+
+public interface IMongoClient
 {
-    public interface IMongoClient
-    {
-        IMongoDatabase GetDataBase();
-    }
+    IMongoDatabase GetDataBase();
 }

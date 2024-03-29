@@ -1,10 +1,8 @@
 ﻿using Tarefas.Core.Domain.Models.Tarefas;
 
-namespace Tarefas.Core.Domain.Application.Tarefa
+namespace Tarefas.Core.Domain.Application.Tarefa;
+public interface ITarefaApp
 {
-	public interface ITarefaApp
-	{
-		Task<TarefaConsulta> InserirTarefa(TarefaRegistro tarefaRegistro);
-		Task<bool> AlterarTarefa(TarefaAlteracao tarefaAlteracao);
-	}
+	Task<TarefaConsulta> InserirTarefa(TarefaRegistro tarefaRegistro);
+	Task<bool> AlterarTarefa(TarefaAlteracao tarefaAlteracao);
 }

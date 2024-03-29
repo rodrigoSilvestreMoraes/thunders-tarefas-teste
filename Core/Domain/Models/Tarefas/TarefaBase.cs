@@ -1,6 +1,6 @@
 ﻿namespace Tarefas.Core.Domain.Models.Tarefas
 {
-	public abstract record TarefaRecordBase
+	public abstract record TarefaBase
 	{
 		public string Id { get; private set; }
 		public string Nome { get; private set; }

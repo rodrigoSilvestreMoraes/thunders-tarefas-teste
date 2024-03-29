@@ -1,9 +1,7 @@
-﻿namespace Tarefas.Core.Domain.Entities.Tarefas
+﻿namespace Tarefas.Core.Domain.Entities.Tarefas;
+public enum EnumPrioridadeTarefa
 {
-	public enum EnumPrioridadeTarefa
-	{
-		Baixa = 0,
-		Media = 1,
-		Alta = 2
-	}
+	Baixa = 0,
+	Media = 1,
+	Alta = 2
 }

@@ -2,20 +2,19 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
-namespace Tarefas.Core.Domain.Models
+namespace Tarefas.Core.Domain.Models;
+
+[ExcludeFromCodeCoverage]
+public class FlatData
 {
-	[ExcludeFromCodeCoverage]
-	public class FlatData
+	[JsonIgnore]
+	public ObjectId Id { get; set; }
+	public string Codigo
 	{
-		[JsonIgnore]
-		public ObjectId Id { get; set; }
-		public string Codigo
+		get
 		{
-			get
-			{
-				return Id.ToString();
-			}
+			return Id.ToString();
 		}
-		public string Nome { get; set; }
 	}
+	public string Nome { get; set; }
 }
