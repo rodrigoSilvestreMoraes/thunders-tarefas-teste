@@ -18,14 +18,16 @@ public class TarefaEntitie
 	{
 		this.Id = id;
 	}
-	public static TarefaEntitie Builder(ITarefaDefinition tarefaDefinition)
+	public static TarefaEntitie BuilderForInsert(ITarefaDefinition tarefaDefinition) => Builder(tarefaDefinition, EnumStatusTarefa.Pendente);
+	public static TarefaEntitie BuilderForUpdate(ITarefaDefinition tarefaDefinition) => Builder(tarefaDefinition, (EnumStatusTarefa)tarefaDefinition.Status);
+	static TarefaEntitie Builder(ITarefaDefinition tarefaDefinition, EnumStatusTarefa status)
 	{
 		return new TarefaEntitie
 		{
 			CategoriaId = tarefaDefinition.CategoriaId,
 			Nome = tarefaDefinition.Nome.Trim().ToLower(),
 			Prioridade = (EnumPrioridadeTarefa)tarefaDefinition.Prioridade,
-			Status = (EnumStatusTarefa)tarefaDefinition.Status,
+			Status = status,
 			SemPrazo = tarefaDefinition.SemPrazo,
 			Usuario = tarefaDefinition.Usuario,
 			Detalhe = tarefaDefinition.Detalhe,
@@ -33,7 +35,7 @@ public class TarefaEntitie
 			DataFinal = DateTimeExtension.DateTimeParse(tarefaDefinition.DataFinal),
 		};
 	}
-	
+
 	public ITarefaDefinition MappingResponse(ITarefaDefinition response)
 	{
 		response.Id = this.Id;
