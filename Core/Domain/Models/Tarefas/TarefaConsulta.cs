@@ -1,7 +1,4 @@
 ﻿namespace Tarefas.Core.Domain.Models.Tarefas
 {
-	public record TarefaConsulta : TarefaBase
-	{
-
-	}
+	public record TarefaConsulta : TarefaBase {	}
 }

@@ -8,6 +8,10 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 using Tarefas.Core.Domain.ServiceBusiness.Tarefas;
 using Tarefas.Core.Infra.Repository.Mongo;
+using FluentValidation;
+using Tarefas.Core.Domain.Models.Tarefas;
+using Tarefas.Core.Domain.Application.Tarefa.Validator;
+using Tarefas.Core.Domain.Application.Tarefa;
 
 namespace Tarefas.Core.Infra.BootStrap;
 
@@ -22,6 +26,20 @@ public static class StartupBuilderTarefasCore
 
 	public static IServiceCollection BuildServices(IServiceCollection services, IConfiguration _configuration)
 	{
+
+		#region Application
+
+		services.AddScoped<ITarefaApp, TarefaApp>();
+
+		#endregion
+
+		#region Validators
+
+		services.AddScoped<IValidator<TarefaRegistro>, TarefaCriacaoValidator>();
+		services.AddScoped<IValidator<TarefaAlteracao>, TarefaAtualizacaoValidator>();
+
+		#endregion
+
 		#region Services
 
 		services.AddSingleton<BackgroundWorkerQueue>();
@@ -47,6 +65,7 @@ public static class StartupBuilderTarefasCore
 		services.AddSingleton<ICustomLogRepo>(x => new CustomLogRepo(mongoClient: _mongoConfig, x.GetRequiredService<BackgroundWorkerQueue>()));			
 
 		#endregion			
+
 
 		return services;
 	}
