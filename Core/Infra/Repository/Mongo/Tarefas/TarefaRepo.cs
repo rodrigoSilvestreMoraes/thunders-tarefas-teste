@@ -2,7 +2,6 @@
 using MongoDB.Driver;
 using Tarefas.Core.Domain.Entities.Tarefas;
 using Tarefas.Core.Domain.Repositorys.Tarefa;
-using ClientMongo = Tarefas.Core.Infra.Repository.Mongo;
 
 namespace Tarefas.Core.Infra.Repository.Mongo.Tarefas;
 
@@ -33,8 +32,7 @@ public class TarefaRepo : ITarefaRepo
              .Set(body => body.Usuario, tarefaEntitie.Usuario)
              .Set(body => body.Prioridade, tarefaEntitie.Prioridade)
              .Set(body => body.CategoriaId, tarefaEntitie.CategoriaId)
-             .Set(body => body.SemPrazo, tarefaEntitie.SemPrazo)
-             .Set(body => body.SubTarefas, tarefaEntitie.SubTarefas);
+             .Set(body => body.SemPrazo, tarefaEntitie.SemPrazo);
 
         var result = await GetCollection().UpdateOneAsync(filter, update);
 
@@ -64,10 +62,18 @@ public class TarefaRepo : ITarefaRepo
         return result.DeletedCount > 0;
     }
 
-    public Task<List<TarefaEntitie>> ExisteTarefaPorNome(string nome)
+    public async Task<List<TarefaEntitie>> ExisteTarefaPorNome(string nome)
     {
-        throw new NotImplementedException();
-    }
+		var builder = Builders<TarefaEntitie>.Filter;
+		var filters = new List<FilterDefinition<TarefaEntitie>>
+		{
+			builder.Eq(x => x.Nome, nome.ToLower())
+		};
+		var filter = builder.And(filters);
+
+		var result = await GetCollection().FindAsync(filter);
+		return result.ToList();
+	}
     public async Task<List<TarefaEntitie>> Consultar(string usuario)
     {
         var builder = Builders<TarefaEntitie>.Filter;

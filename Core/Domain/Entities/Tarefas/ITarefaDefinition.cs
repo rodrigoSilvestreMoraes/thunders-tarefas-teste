@@ -1,8 +1,6 @@
-﻿using Tarefas.Core.Domain.Entities.Tarefas;
-
-namespace Tarefas.Core.Domain.Models.Tarefas
+﻿namespace Tarefas.Core.Domain.Entities.Tarefas
 {
-	public abstract record TarefaBase : ITarefaDefinition
+	public interface ITarefaDefinition
 	{
 		public string Id { get; set; }
 		public string Nome { get; set; }
@@ -13,6 +11,6 @@ namespace Tarefas.Core.Domain.Models.Tarefas
 		public int Status { get; set; }
 		public bool SemPrazo { get; set; }
 		public string Usuario { get; set; }
-		public string CategoriaId { get; set; }
+		public string CategoriaId { get;  set; }
 	}
 }

@@ -1,4 +1,6 @@
-﻿namespace Tarefas.Core.Domain.Entities.Tarefas;
+﻿using Tarefas.Core.Infra.Extension;
+
+namespace Tarefas.Core.Domain.Entities.Tarefas;
 
 public class TarefaEntitie
 {
@@ -12,11 +14,40 @@ public class TarefaEntitie
 	public bool SemPrazo {  get; private set; }
 	public string Usuario { get; private set; }
 	public string CategoriaId { get; private set; }
-	public List<SubTarefaEntitie> SubTarefas { get; private set; } = new List<SubTarefaEntitie>();
-
 	public void SetId(string id)
 	{
 		this.Id = id;
+	}
+	public static TarefaEntitie Builder(ITarefaDefinition tarefaDefinition)
+	{
+		return new TarefaEntitie
+		{
+			CategoriaId = tarefaDefinition.CategoriaId,
+			Nome = tarefaDefinition.Nome.Trim().ToLower(),
+			Prioridade = (EnumPrioridadeTarefa)tarefaDefinition.Prioridade,
+			Status = (EnumStatusTarefa)tarefaDefinition.Status,
+			SemPrazo = tarefaDefinition.SemPrazo,
+			Usuario = tarefaDefinition.Usuario,
+			Detalhe = tarefaDefinition.Detalhe,
+			DataInicio = DateTimeExtension.DateTimeParse(tarefaDefinition.DataInicio),
+			DataFinal = DateTimeExtension.DateTimeParse(tarefaDefinition.DataFinal),
+		};
+	}
+	
+	public ITarefaDefinition MappingResponse(ITarefaDefinition response)
+	{
+		response.Id = this.Id;
+		response.Nome = this.Nome.FirstCharToUpper();
+		response.Status = (int)this.Status;
+		response.Prioridade = (int)this.Prioridade;
+		response.SemPrazo = this.SemPrazo;
+		response.Detalhe = this.Detalhe;
+		response.DataInicio = this.DataInicio.ToShortDateString();
+		response.DataFinal = this.DataFinal.ToShortDateString();
+		response.CategoriaId = this.CategoriaId;
+		response.Usuario = this.Usuario;
+
+		return response;
 	}
 }
 

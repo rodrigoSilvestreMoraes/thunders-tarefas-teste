@@ -3,7 +3,7 @@ using MongoDB.Bson;
 
 namespace Tarefas.Test.Stubs
 {
-	public static class ClienteViewMock
+	public static class CategoriaViewMock
 	{
 		public static List<CategoriaView> Listar()
 		{
@@ -11,12 +11,12 @@ namespace Tarefas.Test.Stubs
 
 			for (int i = 0; i < 5; i++)
 			{
-				result.Add(MockClienteView());
+				result.Add(MockCategoriaView());
 			}
 			return result;
 		}
 
-		public static CategoriaView MockClienteView()
+		public static CategoriaView MockCategoriaView()
 		{
 			return new CategoriaView
 			{
