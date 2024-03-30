@@ -8,6 +8,14 @@ namespace Tarefas.Core.Domain.Models;
 public class FlatData
 {
 	[JsonIgnore]
-	public ObjectId Id { get; set; }	
+	public ObjectId Id { get; set; }
+
+	public string Codigo
+	{
+		get
+		{
+			return Id.ToString();
+		}
+	}		
 	public string Nome { get; set; }
 }
