@@ -3,9 +3,7 @@ using Tarefas.Core.Domain.ServiceBusiness.Dominios;
 using MongoDB.Driver;
 using System.Diagnostics.CodeAnalysis;
 
-using ClientMongo = Tarefas.Core.Infra.Repository.Mongo;
-
-namespace Tarefas.Core.Infra.Repository.Dominio;
+namespace Tarefas.Core.Infra.Repository.Mongo.Dominio;
 
 /// <summary>
 /// Usei a Interface da service, por que não vejo necessidade de criar mais interfaces apenas para buscas dados simples.
@@ -13,9 +11,9 @@ namespace Tarefas.Core.Infra.Repository.Dominio;
 [ExcludeFromCodeCoverage]
 public class DominiosRepo : IDominioService
 {
-    readonly ClientMongo.IMongoClient _mongoClient;
+    readonly IMongoClient _mongoClient;
 
-    public DominiosRepo(ClientMongo.IMongoClient mongoClient)
+    public DominiosRepo(IMongoClient mongoClient)
     {
         _mongoClient = mongoClient;
     }

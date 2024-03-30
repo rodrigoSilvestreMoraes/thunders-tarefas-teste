@@ -1,7 +1,6 @@
 ﻿using Tarefas.Core.Domain.ServiceBusiness.Dominios;
 using Tarefas.Core.Infra.EventBus;
 using Tarefas.Core.Infra.Repository.CustomLog;
-using Tarefas.Core.Infra.Repository.Dominio;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
@@ -14,6 +13,7 @@ using Tarefas.Core.Domain.Application.Tarefa;
 using Tarefas.Core.Domain.Repositorys.Tarefa;
 using Tarefas.Core.Infra.Repository.Mongo.Tarefas;
 using Tarefas.Core.Infra.CustomLogger;
+using Tarefas.Core.Infra.Repository.Mongo.Dominio;
 
 namespace Tarefas.Core.Infra.BootStrap;
 
