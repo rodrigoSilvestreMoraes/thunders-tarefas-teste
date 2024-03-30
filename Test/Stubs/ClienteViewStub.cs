@@ -3,7 +3,7 @@ using MongoDB.Bson;
 
 namespace Tarefas.Test.Stubs
 {
-	public static class CategoriaViewMock
+	public static class ClienteViewStub
 	{
 		public static List<CategoriaView> Listar()
 		{

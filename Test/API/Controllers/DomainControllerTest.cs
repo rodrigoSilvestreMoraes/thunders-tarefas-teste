@@ -18,7 +18,7 @@ namespace Tarefas.Test.API.Controllers
 		[Fact]
 		public async void Deveria_ConsultarTodosClientes()
 		{
-			_dominioService.Setup(x => x.ListarCategorias()).Returns(Task.FromResult(CategoriaViewMock.Listar()));
+			_dominioService.Setup(x => x.ListarCategorias()).Returns(Task.FromResult(ClienteViewStub.Listar()));
 
 			var callResult = await GetController().ListarCaterorias();
 			var result = callResult as ObjectResult;
