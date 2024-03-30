@@ -20,6 +20,7 @@ Aplicação CRUD responsável pelo gerenciamento de Tarefas.
         -   **Repository:** Implementação do banco de dados utilizado na aplicação.
         -   **Rest:** Models padrões para comunicação Rest com a API.
         -   **Validator:** Classes auxiliadoras para o validators.
+-   ***Tarefas.Test:*** Projeto que contém os testes unitários do projeto, utilizando xunit e Mock.
 
 Peço a gentileza que rodem a aplicação e analisem todo o código.
 
@@ -58,14 +59,11 @@ Com Visual Studio 2022 e dotnet core **versão 8.0.101** instalado na máquina, 
 
 ## Rodando a cobertura de teste unitário e gerando relatório de cobertura:  
 
-É possível rodar a cobertura de teste unitário e gerar um relatório de cobertura utilizando o padrão **opencover**.
-Acesse via prompt de comando a pasta **Tarefas**, a pasta raíz do projeto.
-Utilize os exemplos de comando localizado no arquivo **Coverage.bat**.
-
- 1. Para gerar a cobertura rode o comando:`dotnet test --test-adapter-path Tests/Tarefas.Test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=Coverage/ /p:excludebyattribute=*.ExcludeFromCodeCoverage*`
- 2. Instale o componente ReportGenerator: 
- 2. Para gerar o relatório em HTML rode o comando:`%USERPROFILE%\.nuget\packages\reportgenerator\5.1.10\tools\net6.0\ReportGenerator.exe "-reports:Test/Coverage/coverage.opencover.xml" "-targetdir:Test/Coverage"`
- 3. Uma vez gerado a cobertura, é possível ver a página com resultado acessando o arquivo localizado: ***Tarefas\Test\Coverage\index.htm***
- 4. Será possível ver o resultado igual a imagem abaixo:  
- 
- ![enter image description here](https://github.com/rodrigoSilvestreMoraes/tarefas/blob/main/mongo_3.png)
+1. Instale o componente ReportGenerator: 
+2. Acesse via prompt de comando a pasta **Tarefas**, a pasta raíz do projeto.
+3. Rode o arquivo **Coverage.bat**, dentro desse arquivo encontram-se os comandos:
+    -   Para gerar a cobertura rode o comando:`dotnet test --test-adapter-path Tests/Tarefas.Test.csproj /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=Coverage/ /p:excludebyattribute=*.ExcludeFromCodeCoverage*`
+    -   Para gerar o relatório em html: `%USERPROFILE%\.nuget\packages\reportgenerator\5.2.4\tools\net8.0\ReportGenerator.exe "-reports:Test/Coverage/coverage.opencover.xml" "-targetdir:Test/Coverage"`
+    -   ***OBS:*** A versão do ReportGenerator pode alterar a pasta do executável, verifique antes de rodar.
+4. Uma vez gerado a cobertura, é possível ver a página com resultado acessando o arquivo localizado: ***Tarefas\Test\Coverage\index.htm***
+ ![Imagem ilustrativa da cobertura de teste](https://github.com/rodrigoSilvestreMoraes/thunders-tarefas-teste/blob/main/imagens/cobertura_teste_unit.png)
