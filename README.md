@@ -1,11 +1,36 @@
 # Projeto Gestão de Tarefas!
 
-Projeto para avaliação, aplicação baseada em API Rest usando banco de dados Mongo.
-Contém uma ideia de envio de eventos para um simulador de Service Bus para geração de log.
-Projeto contém o uso de boas práticas no que coube ser implementado.
+Projeto para avaliação técnica. 
+Aplicação CRUD responsável pelo gerenciamento de Tarefas.
+**Divisão dos projeto:**
+-   Tarefas.Api: Projeto .Net API Rest, responsável em receber as solicitações de CRUD para o gerenciamento de tarefas, possui swagger e postman para ser utilizado.
+-   Tarefas.Core: Projeto Library .Net, responsável em conter todos os recursos de código necessários para implementação da solução, está sub dividida em:
+    -   Domain: 
+        -   Application:
+        -   Entities:
+        -   Models:
+        -   Repositorys:
+        -   ServiceBusiness:
+    -   Infra:
+        -   BootStrap:
+        -   CustomLogger:
+        -   EventBus:
+        -   Extension:
+        -   Repository:
+        -   Rest:
+        -   Validator:
+
 Peço a gentileza que rodem a aplicação e analisem todo o código.
 
-# Instalando o banco de dados Mongo
+# Pré requisitos para rodar a solução.
+1.  Visual Studio 2022
+2.  Dot Net Core 8.x
+3.  Docker
+4.  Client para acessar o Mongo: recomendamos o [Downloads - NoSQLBooster for MongoDB](https://nosqlbooster.com/downloads).
+5.  Postman ou algum de sua preferência
+
+
+# Preparando o ambiente para rodar aplicação:
 
 Será necessário possuir o Docker na máquina local.
 
