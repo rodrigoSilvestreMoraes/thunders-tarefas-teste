@@ -26,7 +26,7 @@ namespace Tarefas.Api.Controllers
 		[SwaggerOperation(Summary = "Cria uma tarefa.", Tags = new[] { _tag })]
 		[SwaggerResponse(StatusCodes.Status201Created, "Solicitação válida.", typeof(TarefaConsulta))]
 		[SwaggerResponse(StatusCodes.Status400BadRequest, "Solicitação inválida.", typeof(RestClientVndErrors))]
-		public async Task<IActionResult> Create([FromBody] TarefaRegistro tarefaRegistro)
+		public async Task<IActionResult> Criar([FromBody] TarefaRegistro tarefaRegistro)
 		{
 			try
 			{
@@ -37,7 +37,7 @@ namespace Tarefas.Api.Controllers
 			}
 			catch (Exception ex)
 			{
-				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext.ActionDescriptor.ControllerName, ex));
+				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext?.ActionDescriptor?.ControllerName, ex));
 				return StatusCode(StatusCodes.Status500InternalServerError, MensagensPadroes.ErrorInternoServidor());
 			}
 		}
@@ -46,7 +46,7 @@ namespace Tarefas.Api.Controllers
 		[SwaggerOperation(Summary = "Atualiza uma tarefa.", Tags = new[] { _tag })]
 		[SwaggerResponse(StatusCodes.Status200OK, "Solicitação inválida.", typeof(bool))]
 		[SwaggerResponse(StatusCodes.Status400BadRequest, "Solicitação inválida.", typeof(RestClientVndErrors))]
-		public async Task<IActionResult> Update([FromBody] TarefaAlteracao tarefaAlteracao)
+		public async Task<IActionResult> Atualizar([FromBody] TarefaAlteracao tarefaAlteracao)
 		{
 			try
 			{
@@ -57,7 +57,7 @@ namespace Tarefas.Api.Controllers
 			}
 			catch (Exception ex)
 			{
-				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext.ActionDescriptor.ControllerName, ex));
+				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext?.ActionDescriptor?.ControllerName, ex));
 				return StatusCode(StatusCodes.Status500InternalServerError, MensagensPadroes.ErrorInternoServidor());
 			}
 		}
@@ -66,8 +66,8 @@ namespace Tarefas.Api.Controllers
 		[SwaggerOperation(Summary = "Atualiza o status de uma tarefa.", Tags = new[] { _tag })]
 		[SwaggerResponse(StatusCodes.Status200OK, "Solicitação inválida.", typeof(bool))]
 		[SwaggerResponse(StatusCodes.Status400BadRequest, "Solicitação inválida.", typeof(RestClientVndErrors))]
-		public async Task<IActionResult> UpdateStatus([FromRoute][SwaggerParameter("Id da tarefa")] string tarefaId, 
-													  [FromRoute][SwaggerParameter("Os valores possíveis são: Pendente = 0, EmProgrego = 1, Pausa = 2, Cancelada = 3, Finalizada = 4,")] int statusId)
+		public async Task<IActionResult> AtualizarStatus([FromRoute][SwaggerParameter("Id da tarefa")] string tarefaId, 
+													     [FromRoute][SwaggerParameter("Os valores possíveis são: Pendente = 0, EmProgrego = 1, Pausa = 2, Cancelada = 3, Finalizada = 4,")] int statusId)
 		{
 			try
 			{
@@ -78,7 +78,7 @@ namespace Tarefas.Api.Controllers
 			}
 			catch (Exception ex)
 			{
-				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext.ActionDescriptor.ControllerName, ex));
+				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext.ActionDescriptor?.ControllerName, ex));
 				return StatusCode(StatusCodes.Status500InternalServerError, MensagensPadroes.ErrorInternoServidor());
 			}
 		}
@@ -87,7 +87,7 @@ namespace Tarefas.Api.Controllers
 		[SwaggerOperation(Summary = "Apaga uma tarefa.", Tags = new[] { _tag })]
 		[SwaggerResponse(StatusCodes.Status200OK, "Solicitação inválida.", typeof(bool))]
 		[SwaggerResponse(StatusCodes.Status400BadRequest, "Solicitação inválida.", typeof(RestClientVndErrors))]
-		public async Task<IActionResult> Delete([FromRoute] string tarefaId)
+		public async Task<IActionResult> Apagar([FromRoute] string tarefaId)
 		{
 			try
 			{
@@ -98,7 +98,7 @@ namespace Tarefas.Api.Controllers
 			}
 			catch (Exception ex)
 			{
-				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext.ActionDescriptor.ControllerName, ex));
+				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext?.ActionDescriptor?.ControllerName, ex));
 				return StatusCode(StatusCodes.Status500InternalServerError, MensagensPadroes.ErrorInternoServidor());
 			}
 		}
@@ -118,7 +118,7 @@ namespace Tarefas.Api.Controllers
 			}
 			catch (Exception ex)
 			{
-				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext.ActionDescriptor.ControllerName, ex));
+				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext?.ActionDescriptor?.ControllerName, ex));
 				return StatusCode(StatusCodes.Status500InternalServerError, MensagensPadroes.ErrorInternoServidor());
 			}
 		}
@@ -127,7 +127,7 @@ namespace Tarefas.Api.Controllers
 		[SwaggerOperation(Summary = "Listar tarefas por usuário.", Tags = new[] { _tag })]
 		[SwaggerResponse(StatusCodes.Status200OK, "Solicitação inválida.", typeof(List<TarefaConsulta>))]
 		[SwaggerResponse(StatusCodes.Status400BadRequest, "Solicitação inválida.", typeof(RestClientVndErrors))]
-		public async Task<IActionResult> ConsultarPorUsuario([FromRoute] string usuario)
+		public async Task<IActionResult> ListarPorUsuario([FromRoute] string usuario)
 		{
 			try
 			{
@@ -138,7 +138,7 @@ namespace Tarefas.Api.Controllers
 			}
 			catch (Exception ex)
 			{
-				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext.ActionDescriptor.ControllerName, ex));
+				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext?.ActionDescriptor?.ControllerName, ex));
 				return StatusCode(StatusCodes.Status500InternalServerError, MensagensPadroes.ErrorInternoServidor());
 			}
 		}
@@ -147,8 +147,8 @@ namespace Tarefas.Api.Controllers
 		[SwaggerOperation(Summary = "Listar tarefas por um período.", Tags = new[] { _tag })]
 		[SwaggerResponse(StatusCodes.Status200OK, "Solicitação inválida.", typeof(List<TarefaConsulta>))]
 		[SwaggerResponse(StatusCodes.Status400BadRequest, "Solicitação inválida.", typeof(RestClientVndErrors))]
-		public async Task<IActionResult> ConsultarPorPeriodo([FromQuery][SwaggerParameter("Formato da data: yyyy-mm-dd")] string dataInicial,
-															 [SwaggerParameter("Formato da data: yyyy-mm-dd")] string dataFinal)
+		public async Task<IActionResult> ListarPorPeriodo([FromQuery][SwaggerParameter("Formato da data: yyyy-mm-dd")] string dataInicial,
+																			[SwaggerParameter("Formato da data: yyyy-mm-dd")] string dataFinal)
 		{
 			try
 			{
@@ -159,7 +159,7 @@ namespace Tarefas.Api.Controllers
 			}
 			catch (Exception ex)
 			{
-				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext.ActionDescriptor.ControllerName, ex));
+				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext?.ActionDescriptor?.ControllerName, ex));
 				return StatusCode(StatusCodes.Status500InternalServerError, MensagensPadroes.ErrorInternoServidor());
 			}
 		}
@@ -168,9 +168,9 @@ namespace Tarefas.Api.Controllers
 		[SwaggerOperation(Summary = "Listar tarefas por usuário e um período.", Tags = new[] { _tag })]
 		[SwaggerResponse(StatusCodes.Status200OK, "Solicitação inválida.", typeof(List<TarefaConsulta>))]
 		[SwaggerResponse(StatusCodes.Status400BadRequest, "Solicitação inválida.", typeof(RestClientVndErrors))]
-		public async Task<IActionResult> ConsultarPorPeriodo([FromRoute] string usuario, 
-															 [FromQuery][SwaggerParameter("Formato da data: yyyy-mm-dd")] string dataInicial, 
-																		[SwaggerParameter("Formato da data: yyyy-mm-dd")] string dataFinal)
+		public async Task<IActionResult> ListarPorUsuarioPeriodo([FromRoute] string usuario, 
+																 [FromQuery][SwaggerParameter("Formato da data: yyyy-mm-dd")] string dataInicial, 
+																			[SwaggerParameter("Formato da data: yyyy-mm-dd")] string dataFinal)
 		{
 			try
 			{
@@ -181,7 +181,7 @@ namespace Tarefas.Api.Controllers
 			}
 			catch (Exception ex)
 			{
-				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext.ActionDescriptor.ControllerName, ex));
+				_customLog.GravarLog(CustomLogRequest.Create(Startup._title, ControllerContext?.ActionDescriptor?.ControllerName, ex));
 				return StatusCode(StatusCodes.Status500InternalServerError, MensagensPadroes.ErrorInternoServidor());
 			}
 		}
