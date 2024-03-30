@@ -33,19 +33,18 @@ Peço a gentileza que rodem a aplicação e analisem todo o código.
 
 # Preparando o ambiente para rodar aplicação:
 
-Será necessário possuir o Docker na máquina local.
+***Será necessário possuir o Docker na máquina local.***
 
  1. Baixe o projeto do repositório git.
  2. Acesse a pasta ***pathProjeto\Docker\Mongo***.
  3. Usando um prompt de comando de sua preferência execute o seguinte comando: **docker-compose up -d**
  4. Espere carregar o mongo, usando uma ferramenta client do mongo, conecte-se ao mongo com localhost, não precisa informar usuário me senha:
  ![conexão com mongo](https://github.com/rodrigoSilvestreMoraes/thunders-tarefas-teste/blob/main/imagens/mongo_conexao.png)
- 5. Use um client para mongo de sua preferência que possua acesso ao shell do mongo, recomendamos o [Downloads - NoSQLBooster for MongoDB](https://nosqlbooster.com/downloads).
- 6. Uma vez dentro do sheel do mongo, acesso arquivo ***Tarefas\DataBase\scripts\scriptCriacaoBaseDadosCompleta.js***
+ 5. Crie um DataBase chamado TarefasDB.
+ 6. Uma vez dentro do sheel do mongo, acesso arquivo ***DataBase\scripts\scriptCriacaoBaseDadosCompleta.js***.
  7. Execute esse script todo, ele vai criar o DataBase, o usuário e as collection's assim como uma quantidade de massa de dados.
  8. A imagem abaixo mostra se o banco foi criado com sucesso:
- 
-![Mongo Instalado e configurado](https://github.com/rodrigoSilvestreMoraes/tarefas/blob/main/mongo_2.png)
+ ![Mongo Instalado e configurado](https://github.com/rodrigoSilvestreMoraes/thunders-tarefas-teste/blob/main/imagens/mongo_db_criado.png)
  
 
 ## Rodando aplicação API:

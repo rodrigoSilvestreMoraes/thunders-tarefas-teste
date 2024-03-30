@@ -3,7 +3,7 @@ db.createUser(
   {
     user: "tarefas_usr",
     pwd: "1234",
-    roles: [ { role: "readWrite", db: "FluxoCaixa" } ]
+    roles: [ { role: "readWrite", db: "TarefasDB" } ]
   }
 );
 
@@ -21,11 +21,11 @@ db.createCollection("Categorias", {
   validationAction: "warn"
 });
 
-db.getCollection("Categoria").createIndex({ "Nome": 1 });
+db.getCollection("Categorias").createIndex({ "Nome": 1 });
 
-db.Despesas.insertMany([{Nome: "Diárias"}]);
-db.Despesas.insertMany([{Nome: "Escolares"}]);
-db.Despesas.insertMany([{Nome: "Cuidados Pessoais"}]);
+db.getCollection("Categorias").insertMany([{Nome: "Diárias"}]);
+db.getCollection("Categorias").insertMany([{Nome: "Escolares"}]);
+db.getCollection("Categorias").insertMany([{Nome: "Cuidados Pessoais"}]);
 
 
 db.createCollection("Tarefas", {
