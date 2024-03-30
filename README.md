@@ -54,7 +54,7 @@ Com Visual Studio 2022 e dotnet core **versão 8.0.101** instalado na máquina, 
  1. API Rest utilizando swagger para demostrar o uso das rotas.
  2. As operações podem ser construídas utilizando o próprio swagger e o retorno das rotas de domínio. 
  3. Para acessar o healthcheck da api execute a rota: http://localhost:5227/health
- 4. Baixe as collections do Postman: [Collection's] (https://github.com/rodrigoSilvestreMoraes/thunders-tarefas-teste/blob/main/files/Tarefas - API.postman_collection.json)
+ 4. Baixe as collections do Postman: [Collection's] (https://github.com/rodrigoSilvestreMoraes/thunders-tarefas-teste/blob/main/files/TarefasPostman_collection.json.json)
 
 ## Rodando a cobertura de teste unitário e gerando relatório de cobertura:
 
