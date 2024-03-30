@@ -1,0 +1,1208 @@
+{
+	"info": {
+		"_postman_id": "cfd20f60-98f0-49be-8401-17f973a5f8e6",
+		"name": "Tarefas - API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "453784"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Domain",
+					"item": [
+						{
+							"name": "categorias",
+							"item": [
+								{
+									"name": "Lista todas as categorias de tarefa.",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Domain/categorias",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Domain",
+												"categorias"
+											]
+										},
+										"description": "Permite a consulta de todas as categorias disponíveis."
+									},
+									"response": [
+										{
+											"name": "Solicitação realizada.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Domain/categorias",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Domain",
+														"categorias"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"nome\": \"<string>\"\n  },\n  {\n    \"nome\": \"<string>\"\n  }\n]"
+										},
+										{
+											"name": "Sem resultados.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Domain/categorias",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Domain",
+														"categorias"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"vndErros\": {\n    \"errors\": [\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      }\n    ]\n  }\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Tarefas",
+					"item": [
+						{
+							"name": "{tarefaId}",
+							"item": [
+								{
+									"name": "status",
+									"item": [
+										{
+											"name": "{statusId}",
+											"item": [
+												{
+													"name": "Atualiza o status de uma tarefa.",
+													"request": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/Tarefas/:tarefaId/status/:statusId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"Tarefas",
+																":tarefaId",
+																"status",
+																":statusId"
+															],
+															"variable": [
+																{
+																	"key": "tarefaId",
+																	"value": "<string>",
+																	"description": "(Required) Id da tarefa"
+																},
+																{
+																	"key": "statusId",
+																	"value": "<integer>",
+																	"description": "(Required) Os valores possíveis são: Pendente = 0, EmProgrego = 1, Pausa = 2, Cancelada = 3, Finalizada = 4,"
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Solicitação inválida.",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "text/plain"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/Tarefas/:tarefaId/status/:statusId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"Tarefas",
+																		":tarefaId",
+																		"status",
+																		":statusId"
+																	],
+																	"variable": [
+																		{
+																			"key": "tarefaId"
+																		},
+																		{
+																			"key": "statusId"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "<boolean>"
+														},
+														{
+															"name": "Solicitação inválida.",
+															"originalRequest": {
+																"method": "PUT",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "text/plain"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/Tarefas/:tarefaId/status/:statusId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"Tarefas",
+																		":tarefaId",
+																		"status",
+																		":statusId"
+																	],
+																	"variable": [
+																		{
+																			"key": "tarefaId"
+																		},
+																		{
+																			"key": "statusId"
+																		}
+																	]
+																}
+															},
+															"status": "Bad Request",
+															"code": 400,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"vndErros\": {\n    \"errors\": [\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      }\n    ]\n  }\n}"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Apaga uma tarefa.",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Tarefas/:tarefaId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Tarefas",
+												":tarefaId"
+											],
+											"variable": [
+												{
+													"key": "tarefaId",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Solicitação inválida.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Tarefas/:tarefaId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Tarefas",
+														":tarefaId"
+													],
+													"variable": [
+														{
+															"key": "tarefaId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "<boolean>"
+										},
+										{
+											"name": "Solicitação inválida.",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Tarefas/:tarefaId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Tarefas",
+														":tarefaId"
+													],
+													"variable": [
+														{
+															"key": "tarefaId"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"vndErros\": {\n    \"errors\": [\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      }\n    ]\n  }\n}"
+										}
+									]
+								},
+								{
+									"name": "Pega uma tarefa.",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Tarefas/:tarefaId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Tarefas",
+												":tarefaId"
+											],
+											"variable": [
+												{
+													"key": "tarefaId",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Solicitação inválida.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Tarefas/:tarefaId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Tarefas",
+														":tarefaId"
+													],
+													"variable": [
+														{
+															"key": "tarefaId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"detalhe\": \"<string>\",\n  \"dataInicio\": \"<string>\",\n  \"dataFinal\": \"<string>\",\n  \"prioridade\": \"<integer>\",\n  \"status\": \"<integer>\",\n  \"semPrazo\": \"<boolean>\",\n  \"usuario\": \"<string>\",\n  \"categoriaId\": \"<string>\"\n}"
+										},
+										{
+											"name": "Solicitação inválida.",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Tarefas/:tarefaId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Tarefas",
+														":tarefaId"
+													],
+													"variable": [
+														{
+															"key": "tarefaId"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"vndErros\": {\n    \"errors\": [\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      }\n    ]\n  }\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "listar",
+							"item": [
+								{
+									"name": "{usuario}",
+									"item": [
+										{
+											"name": "Listar tarefas por usuário.",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Tarefas/listar/:usuario",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Tarefas",
+														"listar",
+														":usuario"
+													],
+													"variable": [
+														{
+															"key": "usuario",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Solicitação inválida.",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/Tarefas/listar/:usuario",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"Tarefas",
+																"listar",
+																":usuario"
+															],
+															"variable": [
+																{
+																	"key": "usuario"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "[\n  {\n    \"id\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"detalhe\": \"<string>\",\n    \"dataInicio\": \"<string>\",\n    \"dataFinal\": \"<string>\",\n    \"prioridade\": \"<integer>\",\n    \"status\": \"<integer>\",\n    \"semPrazo\": \"<boolean>\",\n    \"usuario\": \"<string>\",\n    \"categoriaId\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"detalhe\": \"<string>\",\n    \"dataInicio\": \"<string>\",\n    \"dataFinal\": \"<string>\",\n    \"prioridade\": \"<integer>\",\n    \"status\": \"<integer>\",\n    \"semPrazo\": \"<boolean>\",\n    \"usuario\": \"<string>\",\n    \"categoriaId\": \"<string>\"\n  }\n]"
+												},
+												{
+													"name": "Solicitação inválida.",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/Tarefas/listar/:usuario",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"Tarefas",
+																"listar",
+																":usuario"
+															],
+															"variable": [
+																{
+																	"key": "usuario"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"vndErros\": {\n    \"errors\": [\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      }\n    ]\n  }\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "periodo",
+									"item": [
+										{
+											"name": "Listar tarefas por um período.",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Tarefas/listar/periodo?dataInicial=<string>&dataFinal=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Tarefas",
+														"listar",
+														"periodo"
+													],
+													"query": [
+														{
+															"key": "dataInicial",
+															"value": "<string>",
+															"description": "Formato da data: yyyy-mm-dd"
+														},
+														{
+															"key": "dataFinal",
+															"value": "<string>",
+															"description": "Formato da data: yyyy-mm-dd"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Solicitação inválida.",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/Tarefas/listar/periodo?dataInicial=<string>&dataFinal=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"Tarefas",
+																"listar",
+																"periodo"
+															],
+															"query": [
+																{
+																	"key": "dataInicial",
+																	"value": "<string>",
+																	"description": "Formato da data: yyyy-mm-dd"
+																},
+																{
+																	"key": "dataFinal",
+																	"value": "<string>",
+																	"description": "Formato da data: yyyy-mm-dd"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "[\n  {\n    \"id\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"detalhe\": \"<string>\",\n    \"dataInicio\": \"<string>\",\n    \"dataFinal\": \"<string>\",\n    \"prioridade\": \"<integer>\",\n    \"status\": \"<integer>\",\n    \"semPrazo\": \"<boolean>\",\n    \"usuario\": \"<string>\",\n    \"categoriaId\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"detalhe\": \"<string>\",\n    \"dataInicio\": \"<string>\",\n    \"dataFinal\": \"<string>\",\n    \"prioridade\": \"<integer>\",\n    \"status\": \"<integer>\",\n    \"semPrazo\": \"<boolean>\",\n    \"usuario\": \"<string>\",\n    \"categoriaId\": \"<string>\"\n  }\n]"
+												},
+												{
+													"name": "Solicitação inválida.",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/Tarefas/listar/periodo?dataInicial=<string>&dataFinal=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"Tarefas",
+																"listar",
+																"periodo"
+															],
+															"query": [
+																{
+																	"key": "dataInicial",
+																	"value": "<string>",
+																	"description": "Formato da data: yyyy-mm-dd"
+																},
+																{
+																	"key": "dataFinal",
+																	"value": "<string>",
+																	"description": "Formato da data: yyyy-mm-dd"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"vndErros\": {\n    \"errors\": [\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      }\n    ]\n  }\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "usuario",
+									"item": [
+										{
+											"name": "{usuario}",
+											"item": [
+												{
+													"name": "periodo",
+													"item": [
+														{
+															"name": "Listar tarefas por usuário e um período.",
+															"request": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "text/plain"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/Tarefas/listar/usuario/:usuario/periodo?dataInicial=<string>&dataFinal=<string>",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"Tarefas",
+																		"listar",
+																		"usuario",
+																		":usuario",
+																		"periodo"
+																	],
+																	"query": [
+																		{
+																			"key": "dataInicial",
+																			"value": "<string>",
+																			"description": "Formato da data: yyyy-mm-dd"
+																		},
+																		{
+																			"key": "dataFinal",
+																			"value": "<string>",
+																			"description": "Formato da data: yyyy-mm-dd"
+																		}
+																	],
+																	"variable": [
+																		{
+																			"key": "usuario",
+																			"value": "<string>",
+																			"description": "(Required) "
+																		}
+																	]
+																}
+															},
+															"response": [
+																{
+																	"name": "Solicitação inválida.",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [
+																			{
+																				"key": "Accept",
+																				"value": "text/plain"
+																			}
+																		],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/Tarefas/listar/usuario/:usuario/periodo?dataInicial=<string>&dataFinal=<string>",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"Tarefas",
+																				"listar",
+																				"usuario",
+																				":usuario",
+																				"periodo"
+																			],
+																			"query": [
+																				{
+																					"key": "dataInicial",
+																					"value": "<string>",
+																					"description": "Formato da data: yyyy-mm-dd"
+																				},
+																				{
+																					"key": "dataFinal",
+																					"value": "<string>",
+																					"description": "Formato da data: yyyy-mm-dd"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "usuario"
+																				}
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"body": "[\n  {\n    \"id\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"detalhe\": \"<string>\",\n    \"dataInicio\": \"<string>\",\n    \"dataFinal\": \"<string>\",\n    \"prioridade\": \"<integer>\",\n    \"status\": \"<integer>\",\n    \"semPrazo\": \"<boolean>\",\n    \"usuario\": \"<string>\",\n    \"categoriaId\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"nome\": \"<string>\",\n    \"detalhe\": \"<string>\",\n    \"dataInicio\": \"<string>\",\n    \"dataFinal\": \"<string>\",\n    \"prioridade\": \"<integer>\",\n    \"status\": \"<integer>\",\n    \"semPrazo\": \"<boolean>\",\n    \"usuario\": \"<string>\",\n    \"categoriaId\": \"<string>\"\n  }\n]"
+																},
+																{
+																	"name": "Solicitação inválida.",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [
+																			{
+																				"key": "Accept",
+																				"value": "text/plain"
+																			}
+																		],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/Tarefas/listar/usuario/:usuario/periodo?dataInicial=<string>&dataFinal=<string>",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"Tarefas",
+																				"listar",
+																				"usuario",
+																				":usuario",
+																				"periodo"
+																			],
+																			"query": [
+																				{
+																					"key": "dataInicial",
+																					"value": "<string>",
+																					"description": "Formato da data: yyyy-mm-dd"
+																				},
+																				{
+																					"key": "dataFinal",
+																					"value": "<string>",
+																					"description": "Formato da data: yyyy-mm-dd"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "usuario"
+																				}
+																			]
+																		}
+																	},
+																	"status": "Bad Request",
+																	"code": 400,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{\n  \"vndErros\": {\n    \"errors\": [\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      }\n    ]\n  }\n}"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Cria uma tarefa.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"nome\": \"<string>\",\n  \"detalhe\": \"<string>\",\n  \"dataInicio\": \"<string>\",\n  \"dataFinal\": \"<string>\",\n  \"prioridade\": \"<integer>\",\n  \"semPrazo\": \"<boolean>\",\n  \"usuario\": \"<string>\",\n  \"categoriaId\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Tarefas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Tarefas"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Solicitação válida.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"<string>\",\n  \"detalhe\": \"<string>\",\n  \"dataInicio\": \"<string>\",\n  \"dataFinal\": \"<string>\",\n  \"prioridade\": \"<integer>\",\n  \"semPrazo\": \"<boolean>\",\n  \"usuario\": \"<string>\",\n  \"categoriaId\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Tarefas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Tarefas"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"detalhe\": \"<string>\",\n  \"dataInicio\": \"<string>\",\n  \"dataFinal\": \"<string>\",\n  \"prioridade\": \"<integer>\",\n  \"status\": \"<integer>\",\n  \"semPrazo\": \"<boolean>\",\n  \"usuario\": \"<string>\",\n  \"categoriaId\": \"<string>\"\n}"
+								},
+								{
+									"name": "Solicitação inválida.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"nome\": \"<string>\",\n  \"detalhe\": \"<string>\",\n  \"dataInicio\": \"<string>\",\n  \"dataFinal\": \"<string>\",\n  \"prioridade\": \"<integer>\",\n  \"semPrazo\": \"<boolean>\",\n  \"usuario\": \"<string>\",\n  \"categoriaId\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Tarefas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Tarefas"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"vndErros\": {\n    \"errors\": [\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "Atualiza uma tarefa.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"detalhe\": \"<string>\",\n  \"dataInicio\": \"<string>\",\n  \"dataFinal\": \"<string>\",\n  \"prioridade\": \"<integer>\",\n  \"semPrazo\": \"<boolean>\",\n  \"usuario\": \"<string>\",\n  \"categoriaId\": \"<string>\",\n  \"status\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Tarefas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Tarefas"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Solicitação inválida.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"detalhe\": \"<string>\",\n  \"dataInicio\": \"<string>\",\n  \"dataFinal\": \"<string>\",\n  \"prioridade\": \"<integer>\",\n  \"semPrazo\": \"<boolean>\",\n  \"usuario\": \"<string>\",\n  \"categoriaId\": \"<string>\",\n  \"status\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Tarefas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Tarefas"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "<boolean>"
+								},
+								{
+									"name": "Solicitação inválida.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"nome\": \"<string>\",\n  \"detalhe\": \"<string>\",\n  \"dataInicio\": \"<string>\",\n  \"dataFinal\": \"<string>\",\n  \"prioridade\": \"<integer>\",\n  \"semPrazo\": \"<boolean>\",\n  \"usuario\": \"<string>\",\n  \"categoriaId\": \"<string>\",\n  \"status\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Tarefas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Tarefas"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"vndErros\": {\n    \"errors\": [\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      },\n      {\n        \"logref\": \"<string>\",\n        \"message\": \"<string>\",\n        \"errorCode\": \"<string>\",\n        \"path\": \"<string>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5227//tarefas-thunders"
+		}
+	]
+}

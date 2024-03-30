@@ -33,7 +33,7 @@ Peço a gentileza que rodem a aplicação e analisem todo o código.
 
 # Preparando o ambiente para rodar aplicação:
 
-***Será necessário possuir o Docker na máquina local.***
+***Preparando a Base de Dados.***
 
  1. Baixe o projeto do repositório git.
  2. Acesse a pasta ***pathProjeto\Docker\Mongo***.
@@ -46,14 +46,15 @@ Peço a gentileza que rodem a aplicação e analisem todo o código.
  8. A imagem abaixo mostra se o banco foi criado com sucesso:
  ![Mongo Instalado e configurado](https://github.com/rodrigoSilvestreMoraes/thunders-tarefas-teste/blob/main/imagens/mongo_db_criado.png)
  
-
+ 
 ## Rodando aplicação API:
 
-Com Visual Studio 2022 e dotnet core **versão 6.0.404** instalado na máquina, acesse a solução do projeto e rode a API.
+Com Visual Studio 2022 e dotnet core **versão 8.0.101** instalado na máquina, acesse a solução do projeto e rode a API.
 
  1. API Rest utilizando swagger para demostrar o uso das rotas.
  2. As operações podem ser construídas utilizando o próprio swagger e o retorno das rotas de domínio. 
  3. Para acessar o healthcheck da api execute a rota: http://localhost:5227/health
+ 4. Baixe as collections do Postman: [Collection's] (https://github.com/rodrigoSilvestreMoraes/thunders-tarefas-teste/blob/main/files/Tarefas - API.postman_collection.json)
 
 ## Rodando a cobertura de teste unitário e gerando relatório de cobertura:
 
