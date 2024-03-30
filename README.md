@@ -2,23 +2,24 @@
 
 Projeto para avaliação técnica. 
 Aplicação CRUD responsável pelo gerenciamento de Tarefas.
+
 **Divisão dos projeto:**
 -   Tarefas.Api: Projeto .Net API Rest, responsável em receber as solicitações de CRUD para o gerenciamento de tarefas, possui swagger e postman para ser utilizado.
 -   Tarefas.Core: Projeto Library .Net, responsável em conter todos os recursos de código necessários para implementação da solução, está sub dividida em:
-    -   Domain: 
-        -   Application:
-        -   Entities:
-        -   Models:
-        -   Repositorys:
-        -   ServiceBusiness:
-    -   Infra:
-        -   BootStrap:
-        -   CustomLogger:
-        -   EventBus:
-        -   Extension:
-        -   Repository:
-        -   Rest:
-        -   Validator:
+    -   ***Domain:***  Contém o código responsável pelo dominio da aplicação.
+        -   **Application:** Contém a implementação da comunicação com componentes que estão fora do dominio.
+        -   **Entities:** Contém as entidades do dominio, se encontram isoladas.
+        -   **Models:** Contém uma representação das entidades de dominio e servem para funções específicas orientadas pelas responsabilidades do dominio.
+        -   **Repositorys:** Contém uma abstração das operações necessárias para a gestão dos dados em uma base de dados.
+        -   **ServiceBusiness:** Contém o processamento das entidades de dominio, executando regras de negócio e realizando o processamento dos dados.
+    -   ***Infra:*** Contém recursos de infra, load, cross e execução de IO's.
+        -   **BootStrap:** Responsável pelo IOC da aplicação.
+        -   **CustomLogger:** Recursos para geração de log em fila
+        -   **EventBus:** Implementação em memória para processamento multi thread simulando uma fila.
+        -   **Extension:** Extensões de uso comum.
+        -   **Repository:** Implementação do banco de dados utilizado na aplicação.
+        -   **Rest:** Models padrões para comunicação Rest com a API.
+        -   **Validator:** Classes auxiliadoras para o validators.
 
 Peço a gentileza que rodem a aplicação e analisem todo o código.
 
