@@ -37,7 +37,7 @@ Peço a gentileza que rodem a aplicação e analisem todo o código.
 ***Preparando a Base de Dados.***
 
  1. Baixe o projeto do repositório git.
- 2. Acesse a pasta ***pathProjeto\Docker\Mongo***.
+ 2. Acesse a pasta ***Path_Projeto\Docker\Mongo***.
  3. Usando um prompt de comando de sua preferência execute o seguinte comando: **docker-compose up -d**
  4. Espere carregar o mongo, usando uma ferramenta client do mongo, conecte-se ao mongo com localhost, não precisa informar usuário me senha:
  ![conexão com mongo](https://github.com/rodrigoSilvestreMoraes/thunders-tarefas-teste/blob/main/imagens/mongo_conexao.png)
