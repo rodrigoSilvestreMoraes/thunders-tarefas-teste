@@ -4,8 +4,8 @@ Projeto para avaliação técnica.
 Aplicação CRUD responsável pelo gerenciamento de Tarefas.
 
 **Divisão dos projeto:**
--   Tarefas.Api: Projeto .Net API Rest, responsável em receber as solicitações de CRUD para o gerenciamento de tarefas, possui swagger e postman para ser utilizado.
--   Tarefas.Core: Projeto Library .Net, responsável em conter todos os recursos de código necessários para implementação da solução, está sub dividida em:
+-   ***Tarefas.Api:*** Projeto .Net API Rest, responsável em receber as solicitações de CRUD para o gerenciamento de tarefas, possui swagger e postman para ser utilizado.
+-   ***Tarefas.Core:*** Projeto Library .Net, responsável em conter todos os recursos de código necessários para implementação da solução, está sub dividida em:
     -   ***Domain:***  Contém o código responsável pelo dominio da aplicação.
         -   **Application:** Contém a implementação da comunicação com componentes que estão fora do dominio.
         -   **Entities:** Contém as entidades do dominio, se encontram isoladas.
@@ -36,10 +36,10 @@ Peço a gentileza que rodem a aplicação e analisem todo o código.
 Será necessário possuir o Docker na máquina local.
 
  1. Baixe o projeto do repositório git.
- 2. Acesse a pasta ***Tarefas\Docker\Mongo***.
+ 2. Acesse a pasta ***pathProjeto\Docker\Mongo***.
  3. Usando um prompt de comando de sua preferência execute o seguinte comando: **docker-compose up -d**
- 4. Espere carregar o mongo, em seu prompt algo parecido com a imagem abaixo deve estar sendo exibido:
- ![mongo carregado](https://github.com/rodrigoSilvestreMoraes/tarefas/blob/main/mongo_1.png)
+ 4. Espere carregar o mongo, usando uma ferramenta client do mongo, conecte-se ao mongo com localhost, não precisa informar usuário me senha:
+ ![conexão com mongo](https://github.com/rodrigoSilvestreMoraes/tarefas/imagens/mongo_conexao.png)
  5. Use um client para mongo de sua preferência que possua acesso ao shell do mongo, recomendamos o [Downloads - NoSQLBooster for MongoDB](https://nosqlbooster.com/downloads).
  6. Uma vez dentro do sheel do mongo, acesso arquivo ***Tarefas\DataBase\scripts\scriptCriacaoBaseDadosCompleta.js***
  7. Execute esse script todo, ele vai criar o DataBase, o usuário e as collection's assim como uma quantidade de massa de dados.
