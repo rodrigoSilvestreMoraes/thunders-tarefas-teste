@@ -39,7 +39,7 @@ Peço a gentileza que rodem a aplicação e analisem todo o código.
  1. Baixe o projeto do repositório git.
  2. Acesse a pasta ***Path_Projeto\Docker\Mongo***.
  3. Usando um prompt de comando de sua preferência execute o seguinte comando: **docker-compose up -d**
- 4. Espere carregar o mongo, usando uma ferramenta client do mongo, conecte-se ao mongo com localhost, não precisa informar usuário me senha:
+ 4. Espere carregar o mongo, usando uma ferramenta client do mongo, conecte-se ao mongo com localhost, não precisa informar usuário nem a senha:
  ![conexão com mongo](https://github.com/rodrigoSilvestreMoraes/thunders-tarefas-teste/blob/main/imagens/mongo_conexao.png)
  5. Crie um DataBase chamado TarefasDB.
  6. Uma vez dentro do sheel do mongo, acesso arquivo ***DataBase\scripts\scriptCriacaoBaseDadosCompleta.js***.
@@ -54,6 +54,7 @@ Com Visual Studio 2022 e dotnet core **versão 8.0.101** instalado na máquina, 
 
  1. API Rest utilizando swagger para demostrar o uso das rotas.
  2. As operações podem ser construídas utilizando o próprio swagger e o retorno das rotas de domínio. 
+ ![Swagger Demonstração](https://github.com/rodrigoSilvestreMoraes/thunders-tarefas-teste/blob/main/imagens/swagger_demonstracao.png)
  3. Para acessar o healthcheck da api execute a rota: http://localhost:5227/health
  4. Baixe as collections do Postman: [TarefasPostman_collection.zip] (https://github.com/rodrigoSilvestreMoraes/thunders-tarefas-teste/blob/main/files).
 
