@@ -3,7 +3,7 @@ using Tarefas.Core.Domain.Models.Tarefas;
 
 namespace Tarefas.Test.Stubs
 {
-	public static class TarefaStub
+	public static class TarefaModelStub
 	{
 		public static TarefaRegistro MockCriarTarefa()
 		{

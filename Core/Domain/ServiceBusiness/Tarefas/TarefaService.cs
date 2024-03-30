@@ -60,9 +60,8 @@ public class TarefaService : ITarefaService
 	public async Task<ITarefaDefinition> Pegar(string tarefaId)
 	{
 		var result = await _tarefaRepo.Pegar(tarefaId);
-		return result.MappingResponse(new TarefaConsulta());
+		return result?.MappingResponse(new TarefaConsulta());
 	}
-
 	List<ITarefaDefinition> Mapping(List<TarefaEntitie> entities)
 	{
 		if (entities.Any())

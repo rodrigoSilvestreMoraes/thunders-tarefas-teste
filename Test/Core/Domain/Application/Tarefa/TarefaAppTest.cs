@@ -24,8 +24,8 @@ namespace Tarefas.Test.Core.Domain.Application.Tarefa
 		[Fact]
 		public async void Deveria_CriarTarefa() 
 		{ 
-			var mockInsercao = TarefaStub.MockCriarTarefa();
-			var mockRetorno = TarefaStub.MockConsultaTarefa() as ITarefaDefinition;
+			var mockInsercao = TarefaModelStub.MockCriarTarefa();
+			var mockRetorno = TarefaModelStub.MockConsultaTarefa() as ITarefaDefinition;
 			_service.Setup(x => x.Criar(It.IsAny<ITarefaDefinition>())).Returns(Task.FromResult(mockRetorno));
 
 			var app = GetApp();
@@ -37,9 +37,9 @@ namespace Tarefas.Test.Core.Domain.Application.Tarefa
 		[Fact]
 		public async void Nao_Deveria_CriarTarefa()
 		{
-			var mockInsercao = TarefaStub.MockCriarTarefa();
+			var mockInsercao = TarefaModelStub.MockCriarTarefa();
 			mockInsercao.Nome = "";
-			var mockRetorno = TarefaStub.MockConsultaTarefa() as ITarefaDefinition;
+			var mockRetorno = TarefaModelStub.MockConsultaTarefa() as ITarefaDefinition;
 			_service.Setup(x => x.Criar(It.IsAny<ITarefaDefinition>())).Returns(Task.FromResult(mockRetorno));
 
 			var app = GetApp();
@@ -50,7 +50,7 @@ namespace Tarefas.Test.Core.Domain.Application.Tarefa
 		[Fact]
 		public async void Deveria_AlterarTarefa()
 		{
-			var mockAlterar = TarefaStub.MockAlterarTarefa();
+			var mockAlterar = TarefaModelStub.MockAlterarTarefa();
 			_service.Setup(x => x.Alterar(It.IsAny<ITarefaDefinition>())).Returns(Task.FromResult(true));
 
 			var app = GetApp();
@@ -61,7 +61,7 @@ namespace Tarefas.Test.Core.Domain.Application.Tarefa
 		[Fact]
 		public async void Nao_Deveria_AlterarTarefa()
 		{
-			var mockAlterar = TarefaStub.MockAlterarTarefa();
+			var mockAlterar = TarefaModelStub.MockAlterarTarefa();
 			mockAlterar.Nome = "";
 			_service.Setup(x => x.Alterar(It.IsAny<ITarefaDefinition>())).Returns(Task.FromResult(true));
 
@@ -93,7 +93,7 @@ namespace Tarefas.Test.Core.Domain.Application.Tarefa
 		[Fact]
 		public async void Deveria_PegarTarefa()
 		{
-			var mockRetorno = TarefaStub.MockConsultaTarefa();
+			var mockRetorno = TarefaModelStub.MockConsultaTarefa();
 
 			_service.Setup(x => x.Pegar(It.IsAny<string>())).Returns(Task.FromResult(mockRetorno));
 
@@ -105,7 +105,7 @@ namespace Tarefas.Test.Core.Domain.Application.Tarefa
 		[Fact]
 		public async void Deveria_ListarTarefaPorUsuario()
 		{
-			var mockRetorno = TarefaStub.MockListaTarefas();
+			var mockRetorno = TarefaModelStub.MockListaTarefas();
 			_service.Setup(x => x.Consultar(It.IsAny<string>())).Returns(Task.FromResult(mockRetorno));
 
 			var app = GetApp();
@@ -117,7 +117,7 @@ namespace Tarefas.Test.Core.Domain.Application.Tarefa
 		[Fact]
 		public async void Deveria_ListarTarefaPorUsuarioEPeriodo()
 		{
-			var mockRetorno = TarefaStub.MockListaTarefas();
+			var mockRetorno = TarefaModelStub.MockListaTarefas();
 			_service.Setup(x => x.Consultar(It.IsAny<string>(), It.IsAny<DateTime>(), It.IsAny<DateTime>())).Returns(Task.FromResult(mockRetorno));
 
 			var app = GetApp();
@@ -129,7 +129,7 @@ namespace Tarefas.Test.Core.Domain.Application.Tarefa
 		[Fact]
 		public async void Deveria_ListarTarefaPorPeriodo()
 		{
-			var mockRetorno = TarefaStub.MockListaTarefas();
+			var mockRetorno = TarefaModelStub.MockListaTarefas();
 			_service.Setup(x => x.Consultar(It.IsAny<DateTime>(), It.IsAny<DateTime>())).Returns(Task.FromResult(mockRetorno));
 
 			var app = GetApp();

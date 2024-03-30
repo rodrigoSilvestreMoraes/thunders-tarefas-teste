@@ -5,21 +5,6 @@ namespace Tarefas.Core.Infra.Validator
 {
 	public static class CustomValidators
 	{
-		/// <summary>
-		/// Garantir o formato PT/BR
-		/// </summary>
-		/// <param name="data"></param>
-		/// <returns></returns>
-		public static bool ValidarFormatoData(string data)
-		{
-			if (string.IsNullOrEmpty(data)) return false;
-
-			DateTime dataEnviada = DateTime.MinValue;
-			var result = DateTime.TryParse(data, out dataEnviada);
-
-			return result;
-		}
-
 		public static bool ValidarRangeData(string dataInicial, string dataFinal)
 		{
 			DateTime dataInicialEnviada = DateTime.MinValue;
